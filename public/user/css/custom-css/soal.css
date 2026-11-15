@@ -1,0 +1,698 @@
+@font-face {
+    font-family: "Negrita Pro";
+    src: url("/user/font/negrita-pro/NegritaPro.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Negrita Pro Bold";
+    src: url("/user/font/negrita-pro/OpenSans-Regular.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("/user/font/open-sans/NegritaPro.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Playpen Sans";
+    src: url("/user/font/Playpen_Sans/static/PlaypenSans-bold.ttf")
+        format("truetype");
+    font-weight: bold;
+    font-style: bold;
+}
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.soal body {
+    margin: 0;
+    padding: 0;
+}
+
+.soal .text-bold {
+    font-weight: bold !important;
+}
+.soal .title-svg {
+    width: 100%;
+    height: 300px;
+}
+.soal {
+    min-height: 100vh; /* full screen */
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: center; /* vertical center */
+    flex-direction: column; /* biar konten ke bawah */
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.soal .ellipse-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.soal .ellipse-content {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px; /* jarak antar elemen */
+    padding: 40px 20px; /* ruang atas & bawah */
+    box-sizing: border-box;
+}
+
+.soal .btn-home {
+    background: #fff;
+    border: 3px solid #000;
+    color: #000;
+    padding: 14px;
+    border-radius: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.soal .btn-home:hover {
+    background: #f5f5f5b2;
+    transform: translateY(-5%);
+}
+.soal a {
+    text-decoration: none !important;
+}
+
+.soal .judul-wrapper {
+    text-align: center !important;
+    left: 50%;
+}
+.soal .judul {
+    font-weight: 800;
+    color: #e56543;
+    font-size: 57px;
+    margin-bottom: 40px;
+    width: 50%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Playpen Sans" !important;
+}
+
+.soal .form-soal {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.soal .card-perasaan {
+    aspect-ratio: 1 / 1;
+    width: 100px;
+    height: auto;
+    min-width: 80px;
+    max-width: 100px;
+    border-radius: 25px;
+    padding: 5px 10px !important;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* biar img + text ke tengah */
+}
+
+.soal .card-perasaan:hover {
+    transform: scale(1.05);
+}
+
+.soal .card-perasaan img {
+    max-width: 150px;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+.soal .card-perasaan h4 {
+    font-weight: bold;
+    font-size: 20px;
+    color: #000;
+    margin: 0;
+}
+
+.soal .text-center {
+    width: 100% !important;
+}
+.soal .text-perasaan {
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+    font-size: 18px;
+}
+.soal .placeholder {
+    background-color: white !important;
+}
+
+.soal .level-mini {
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 80px;
+    background: white;
+}
+
+.soal .level-mini.active {
+    background: linear-gradient(#f4f4f4, #f4f4f4) padding-box,
+        linear-gradient(45deg, #447771, #9dbe8c) border-box;
+    border: 6px solid transparent;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.soal .bulatan-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.soal .bulatan {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+}
+
+.soal .bulatan.filled {
+    background-color: green;
+    border-color: green;
+    color: white;
+}
+.soal .bulatan.filled i {
+    font-size: 14px;
+}
+.soal .top-bar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* kasih jarak antara tombol & teks level */
+    z-index: 5;
+}
+.soal .btn-gotohome {
+    position: static;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #4abc96; /* gradasi biru */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    border: none;
+
+    /* shadow biru gelap kayak di gambar */
+    box-shadow: 0 6px 0 #296652, 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.soal .btn-gotohome i {
+    color: #fff;
+    font-size: 28px;
+}
+
+/* efek hover biar keliatan dipencet */
+.soal .btn-gotohome:hover {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #144a7c, 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.soal .pertanyaan {
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+    font-size: 40px;
+    color: #894864;
+}
+.soal .sub-pertanyaan {
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+    font-size: 20px;
+    color: #894864;
+}
+.soal .target-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+    padding: 5px 10px !important;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.soal .target-img,
+.soal .drop-box {
+    aspect-ratio: 1 / 1;
+    width: 100px;
+    height: auto;
+    min-width: 80px;
+    max-width: 120px;
+}
+.soal .target-jawaban {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* tambahin jarak antar box */
+    justify-content: center;
+    flex-wrap: wrap; /* biar kalau mobile dia turun */
+}
+.soal .target-jawaban {
+    height: 100px; /* samakan dengan card kiri */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.soal .drop-box {
+    width: 120px;
+    height: 100px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.soal .flex-row-equal {
+    display: flex;
+    align-items: stretch;
+}
+.soal .flex-col-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.soal .row {
+    display: flex !important; /* biarin flex default bootstrap */
+    position: relative;
+}
+
+.level-2 .draggable-item-wrapper,
+.level-3 .draggable-item-wrapper {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto; /* otomatis */
+    margin-left: -120px !important;
+}
+
+.soal .text-soal {
+    font-size: 30px;
+    font-family: "Comic Sans MS";
+}
+
+.soal .draggable-item {
+    z-index: 999;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+.soal .draggable-item-wrapper {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-start;
+
+    /* biar height otomatis sesuai isi */
+    height: auto;
+    min-height: fit-content;
+}
+.soal .level-2 .draggable-item-wrapper,
+.soal .level-3 .draggable-item-wrapper {
+    margin-left: -150px !important;
+}
+
+.soal .level-selesai-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.soal .level-selesai-page .skor-modal {
+    background: #e76645;
+    background: linear-gradient(
+        90deg,
+        rgba(231, 102, 69, 1) 0%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(231, 102, 69, 1) 100%
+    );
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    overflow: visible;
+    border: 15px solid #e76645;
+}
+
+.soal .level-selesai-page .modal-image-wrapper {
+    position: absolute;
+    top: -150px;
+    left: 40%;
+    transform: translateX(-50%);
+}
+
+.soal .level-selesai-page .modal-image {
+    width: 140%;
+}
+
+.soal .level-selesai-page .subjudul {
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.soal .level-selesai-page .list-skor p {
+    margin: 2px 0;
+    font-weight: 600;
+    text-align: center !important;
+}
+
+.soal .level-selesai-page .total-skor {
+    margin-top: 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.soal .level-selesai-page .btn-home {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    background: linear-gradient(145deg, #2daafc, #1e90ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 0 #144a7c, 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.soal .level-selesai-page .btn-home:hover {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #144a7c, 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.soal .level-selesai-page .btn-reset {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    background-color: #ff4d4d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 0 #883d2a, 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.soal .level-selesai-page .btn-reset:hover {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #883d2a, 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.soal .level-selesai-page .banner {
+    position: relative;
+    display: inline-block;
+    background: #f15a3c;
+    padding: 12px 50px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.soal .level-selesai-page .banner-title {
+    font-family: "Playpen Sans" !important;
+    font-size: 30px;
+    font-weight: 900;
+    color: #000;
+}
+
+/* Sayap kiri & kanan */
+.soal .level-selesai-page .banner::before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 25px;
+    border-top: 25px solid #d94a2c;
+    border-left: 30px solid transparent;
+}
+.soal .level-selesai-page .banner::after {
+    content: "";
+    position: absolute;
+    left: -30px;
+    bottom: -10px;
+    border-bottom: 25px solid #d94a2c;
+    border-left: 30px solid transparent;
+}
+.soal .level-selesai-page .banner-title::before {
+    content: "";
+    position: absolute;
+    right: -30px;
+    top: 25px;
+    border-top: 25px solid #d94a2c;
+    border-right: 30px solid transparent;
+}
+.soal .level-selesai-page .banner-title::after {
+    content: "";
+    position: absolute;
+    right: -30px;
+    bottom: -10px;
+    border-bottom: 25px solid #d94a2c;
+    border-right: 30px solid transparent;
+}
+.soal .level-selesai-page .stars-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* jarak antar bintang */
+}
+
+.soal .level-selesai-page .star {
+    font-size: 4rem; /* besarin bintang */
+    color: gold; /* warna bintang */
+}
+
+.soal .level-selesai-page .star-middle {
+    position: relative;
+    top: -20px; /* bintang tengah diangkat */
+}
+
+.bg-option {
+    background-color: white;
+    padding: 15px 30px;
+    border-radius: 16px;
+}
+.modal-backdrop.show {
+    display: none;
+}
+.modal.show {
+    z-index: 99998 !important;
+}
+.modal-dialog {
+    z-index: 99999 !important;
+}
+.soal.level-2 {
+    overflow: visible;
+}
+
+/* Tablet (max-width: 992px) */
+@media (max-width: 992px) {
+    .soal .form-soal {
+        padding: 0px 50px; /* kurangi padding biar muat */
+    }
+
+    .soal .pertanyaan {
+        font-size: 28px;
+    }
+
+    .soal .card-perasaan,
+    .soal .target-img,
+    .soal .drop-box {
+        width: 90px;
+        height: 90px;
+    }
+
+    .soal .card-perasaan img,
+    .soal .target-img img {
+        max-width: 60px;
+    }
+
+    .soal .text-perasaan {
+        font-size: 14px;
+    }
+
+    .soal .text-soal {
+        font-size: 20px;
+    }
+}
+
+/* Mobile (max-width: 576px) */
+@media (max-width: 576px) {
+    .soal .form-soal {
+        padding: 0px 15px; /* padding minimal */
+    }
+
+    .soal .judul {
+        font-size: 26px;
+        width: 100%;
+    }
+
+    .soal .pertanyaan {
+        font-size: 20px;
+    }
+
+    .soal .card-perasaan,
+    .soal .target-img,
+    .soal .drop-box {
+        width: 70px;
+        min-width: 60px;
+        max-width: 80px;
+    }
+
+    .soal .card-perasaan img,
+    .soal .target-img img {
+        max-width: 40px;
+    }
+
+    .soal .text-perasaan {
+        font-size: 12px;
+    }
+
+    .soal .text-soal {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .soal .target-jawaban {
+        gap: 12px;
+    }
+
+    .soal .draggable-item-wrapper {
+        padding: 10px;
+    }
+    .soal .level-selesai-page .skor-modal {
+        padding: 15px;
+        border-width: 10px;
+    }
+
+    /* gambar anak biar ga keluar layar */
+    .soal .level-selesai-page .modal-image-wrapper {
+        top: -80px; /* lebih dekat ke modal */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .soal .level-selesai-page .modal-image {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    /* Banner lebih kecil & font menyesuaikan */
+    .soal .level-selesai-page .banner {
+        padding: 8px 20px;
+    }
+
+    .soal .level-selesai-page .banner-title {
+        font-size: 18px;
+    }
+
+    /* subjudul Level */
+    .soal .level-selesai-page .subjudul {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    /* bintang */
+    .soal .level-selesai-page .stars-wrapper {
+        gap: 10px;
+    }
+    .soal .level-selesai-page .star {
+        font-size: 2.5rem;
+    }
+    .soal .level-selesai-page .star-middle {
+        top: -10px;
+    }
+
+    /* skor list */
+    .soal .level-selesai-page .list-skor p {
+        font-size: 14px;
+    }
+
+    .soal .level-selesai-page .total-skor {
+        font-size: 18px;
+    }
+
+    /* button home & reset */
+    .soal .level-selesai-page .btn-home,
+    .soal .level-selesai-page .btn-reset {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .level-2 .row,
+    .level-3 .row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap; /* jangan turun ke bawah */
+    }
+
+    .level-2 .col-md-2,
+    .level-3 .col-md-2 {
+        flex: 0 0 100px; /* lebar fix */
+        max-width: 100px;
+        margin-bottom: 0;
+    }
+
+    .level-2 .col-md-10,
+    .level-3 .col-md-10 {
+        flex: 1;
+        max-width: calc(100% - 100px); /* sisanya */
+        margin-left: 10px;
+    }
+}

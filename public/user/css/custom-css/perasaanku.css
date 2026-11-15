@@ -1,0 +1,459 @@
+@font-face {
+    font-family: "Negrita Pro";
+    src: url("/user/font/negrita-pro/NegritaPro.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Negrita Pro Bold";
+    src: url("/user/font/negrita-pro/OpenSans-Regular.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("/user/font/open-sans/NegritaPro.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Playpen Sans";
+    src: url("/user/font/Playpen_Sans/static/PlaypenSans-bold.ttf")
+        format("truetype");
+    font-weight: bold;
+    font-style: bold;
+}
+.perasaanku body {
+    background-color: #ffa098 !important;
+    margin: 0;
+    padding: 0;
+}
+
+.perasaanku .text-bold {
+    font-weight: bold !important;
+}
+.perasaanku .title-svg {
+    width: 100%;
+    height: 300px;
+}
+.perasaanku {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* Ubah align-items menjadi flex-start agar konten menempel ke atas secara default */
+    align-items: flex-start;
+    overflow: hidden;
+    padding-top: 30px; /* Tambahkan padding atas untuk jarak dari edge */
+}
+.perasaanku .ellipse-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.perasaanku .ellipse-content {
+    position: relative; /* Ubah ke relative agar mengikuti flow normal */
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    /* Hapus margin-top/padding top besar di sini, biarkan diatur oleh .perasaanku */
+}
+
+@media (max-width: 992px) {
+    .perasaanku {
+        height: auto; /* biar tinggi menyesuaikan konten */
+        min-height: 100vh; /* tetap full screen minimal */
+        overflow-y: auto; /* aktifin scroll ke bawah */
+        align-items: flex-start; /* biar konten mulai dari atas, bukan tengah */
+        padding-bottom: 40px; /* kasih ruang bawah biar gak kepotong */
+        padding-top: 20px; /* Jarak atas untuk mobile/tablet */
+    }
+
+    .perasaanku .ellipse-content {
+        position: relative; /* Biar ngikut flow */
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-top: 10px; /* Kurangi margin top */
+    }
+    .perasaanku .judul {
+        font-size: 40px;
+        width: 70%;
+    }
+
+    .perasaanku .card-perasaan {
+        width: 150px;
+        min-height: 200px;
+    }
+
+    /* .perasaanku .card-perasaan img {
+        max-width: 80px;
+    } */
+
+    .perasaanku .card-perasaan h4 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .perasaanku .ellipse-content {
+        /* Hapus properti absolute yang tersisa */
+        top: auto;
+        width: 90%;
+    }
+    /* Hapus atau netralisir transform translateY di sini jika masih ada di file asli Anda
+    .perasaanku .ellipse-content {
+        transform: none;
+    }
+    */
+    .perasaanku .judul {
+        font-size: 28px;
+        width: 90%;
+    }
+
+    .perasaanku .card-perasaan {
+        width: 45%; /* biar 2 card per baris */
+        min-height: 180px;
+        margin-bottom: 15px;
+    }
+
+    /* .perasaanku .card-perasaan img {
+        max-width: 70px;
+        margin-bottom: 10px;
+    } */
+
+    .perasaanku .card-perasaan h4 {
+        font-size: 16px;
+    }
+
+    /* biar card tetap center */
+    .perasaanku .d-flex {
+        justify-content: center !important;
+    }
+}
+
+.perasaanku .btn-home {
+    background: #fff;
+    border: 3px solid #000;
+    color: #000;
+    padding: 14px;
+    border-radius: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.perasaanku .btn-home:hover {
+    background: #f5f5f5b2;
+    transform: translateY(-5%);
+}
+.perasaanku a {
+    text-decoration: none !important;
+}
+
+.perasaanku .judul-wrapper {
+    text-align: center !important;
+    left: 50%;
+}
+.perasaanku .judul {
+    font-weight: 800;
+    color: #e56543;
+    font-size: 57px;
+    margin-bottom: 40px;
+    width: 50%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Playpen Sans" !important;
+}
+
+.perasaanku .card-perasaan {
+    width: 180px;
+    min-height: 220px;
+    border-radius: 25px;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.perasaanku .card-perasaan:hover {
+    transform: scale(1.05);
+}
+
+/* .perasaanku .card-perasaan img {
+    max-width: 150px;
+    margin: 0 auto 15px;
+    display: block;
+} */
+
+.perasaanku .card-perasaan h4 {
+    font-weight: bold;
+    font-size: 20px;
+    color: #000;
+    margin: 0;
+}
+
+.perasaanku .text-center {
+    width: 100% !important;
+}
+@media (max-width: 992px) {
+    .perasaanku {
+        height: 100vh; /* tetap full screen */
+        padding: 20px;
+    }
+
+    .perasaanku .ellipse-content {
+        width: 80%;
+        text-align: center;
+    }
+
+    .perasaanku .judul {
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+
+    .perasaanku .d-flex {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .perasaanku .card-perasaan {
+        width: 180px;
+        min-height: 200px;
+    }
+
+    /* .perasaanku .card-perasaan img {
+        max-width: 120px;
+    } */
+
+    .perasaanku .card-perasaan h4 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .perasaanku {
+        height: 100vh; /* tetap full screen */
+        padding: 15px;
+    }
+
+    .perasaanku .ellipse-content {
+        width: 95%;
+        text-align: center;
+        transform: none;
+    }
+
+    .perasaanku .judul {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .perasaanku .d-flex {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .perasaanku .card-perasaan {
+        width: 180px;
+        min-height: 220px;
+        border-radius: 25px;
+        padding: 20px 10px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* gunakan flex-start supaya img tetap di atas */
+        align-items: center;
+    }
+
+    .perasaanku .card-perasaan .img-wrapper {
+        width: 100%; /* full card width */
+        max-width: 150px; /* maksimal agar tidak terlalu besar */
+        aspect-ratio: 1 / 1; /* tinggi sama dengan lebar */
+        overflow: hidden;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    .perasaanku .card-perasaan .img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* gunakan cover agar tetap penuh di wrapper */
+    }
+
+    .main-content-wrapper .col-md-4.text-left,
+    .main-content-wrapper .col-md-4.text-right {
+        display: none !important; /* Sembunyikan gambar di hp */
+    }
+    .main-content-wrapper .col-md-4.text-center {
+        width: 90%; /* List ambil lebih banyak ruang di hp */
+    }
+    .nav-button {
+        padding: 8px; /* Tombol lebih kecil di hp */
+        font-size: 0.9rem;
+    }
+    .nav-button.position-absolute[style*="left: 80px"] {
+        left: 70px !important; /* Sesuaikan posisi tombol di HP */
+    }
+
+    /* .perasaanku .card-perasaan img {
+        max-width: 90px;
+    } */
+
+    /* --- FIX GAMBAR AGAR PRESISI DI SEMUA UKURAN --- */
+
+    .perasaanku .card-perasaan img {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        display: block;
+    }
+
+    /* Wrapper fix */
+    .perasaanku .img-wrapper {
+        width: 140px; /* boleh 120–150 sesuai desain */
+        height: 140px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 12px;
+    }
+
+    .perasaanku .card-perasaan h4 {
+        font-size: 16px;
+    }
+}
+
+/* ===== DETAIL EMOSI (SHOW) ===== */
+
+.detail-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 110px;
+    flex-wrap: wrap;
+}
+
+.detail-card-image {
+    width: 260px;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.card-img-wrapper {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+/* Wrapper ukuran tetap */
+.img-wrapper {
+    width: 140px; /* kamu bisa ganti 120–160 sesuai desain */
+    height: 140px;
+    overflow: hidden;
+    margin: 0 auto 12px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gambar inside wrapper */
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* agar tidak crop dan proporsional */
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail-card-image img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.detail-card-image h4 {
+    margin-top: 15px;
+    font-size: 28px;
+    font-weight: 800;
+    color: #000;
+    font-family: "Playpen Sans" !important;
+}
+
+/* Kolom teks */
+.detail-description {
+    flex: 1;
+    max-width: 650px;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.detail-description p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #000;
+    text-align: left;
+    font-family: "Open Sans";
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .detail-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .detail-description {
+        max-width: 90%;
+        max-height: none;
+        padding-right: 0;
+    }
+
+    .detail-description p {
+        text-align: center;
+    }
+    .main-content-wrapper .col-md-4.text-left img,
+    .main-content-wrapper .col-md-4.text-right img {
+        max-height: 150px; /* Gambar lebih kecil di tablet */
+    }
+}

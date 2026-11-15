@@ -1,0 +1,481 @@
+@font-face {
+    font-family: "Playpen Sans";
+    src: url("/user/font/Playpen_Sans/static/PlaypenSans-bold.ttf")
+        format("truetype");
+    font-weight: bold;
+    font-style: bold;
+}
+.pilih-level {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.pilih-level .ellipse-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.pilih-level .ellipse-content {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+}
+
+.pilih-level .level-card {
+    position: relative;
+    width: 300px;
+    border-radius: 50px;
+    padding: 10px 20px;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* trik border gradient */
+    background: linear-gradient(#f4f4f4, #f4f4f4) padding-box,
+        linear-gradient(45deg, #447771, #9dbe8c) border-box;
+    border: 6px solid transparent;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.pilih-level .level-card:hover {
+    animation: pulse 1s infinite;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pilih-level .level-card .lock-overlay {
+    opacity: 0.6;
+    pointer-events: none;
+    border-color: #7a7a7a;
+}
+.pilih-level .level-card.disabled {
+    background-color: #e0e0e0; /* abu-abu */
+    cursor: not-allowed;
+    pointer-events: none; /* biar link a gak bisa diklik */
+    opacity: 0.6; /* buat terlihat lebih "disable" */
+}
+.pilih-level .level-card.unlocked {
+    cursor: pointer;
+    opacity: 1;
+}
+.pilih-level .lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.pilih-level .level-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.pilih-level .level-label {
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.pilih-level .bulatan-wrapper {
+    display: flex;
+    gap: 8px;
+}
+
+.pilih-level .bulatan {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+}
+
+.pilih-level .bulatan.filled {
+    background-color: green;
+    border-color: green;
+    color: white;
+}
+.pilih-level .bulatan.filled i {
+    font-size: 14px;
+}
+
+.pilih-level .lock-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    color: black;
+}
+
+.pilih-level .level-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.pilih-level .judul-wrapper {
+    text-align: center !important;
+    left: 50%;
+}
+.pilih-level .judul {
+    font-weight: 800;
+    color: #894864;
+    font-size: 59px;
+    margin-bottom: 40px;
+    font-family: "Playpen Sans" !important;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pilih-level .skor-modal {
+    background: #e76645;
+    background: linear-gradient(
+        90deg,
+        rgba(231, 102, 69, 1) 0%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(231, 102, 69, 1) 100%
+    );
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    overflow: visible;
+    border: 15px solid #e76645;
+}
+
+.pilih-level .modal-image-wrapper {
+    position: absolute;
+    top: -180px;
+    left: 40%;
+    transform: translateX(-50%);
+}
+
+.pilih-level .modal-image {
+    width: 140%;
+}
+
+.pilih-level .judul-modal {
+    font-weight: 800;
+    margin-top: 60px; /* biar turun karena ada gambar */
+}
+
+.pilih-level .subjudul {
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.pilih-level .list-skor p {
+    margin: 2px 0;
+    font-weight: 600;
+    text-align: center !important;
+}
+
+.pilih-level .total-skor {
+    margin-top: 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Button home & reset */
+.pilih-level .btn-home {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    background: linear-gradient(145deg, #2daafc, #1e90ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 0 #144a7c, 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pilih-level .btn-home:hover {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #144a7c, 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.pilih-level .btn-close-modal {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    background: linear-gradient(145deg, #acacac, #e4e4e4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 0 #484848, 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pilih-level .btn-close-modal:hover {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #484848, 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.pilih-level .btn-reset {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    background-color: #ff4d4d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 0 #883d2a, 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-reset:hover {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #883d2a, 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Tombol lihat skor (sementara static) */
+.pilih-level .btn-lihat-skor {
+    margin-top: 20px;
+    background-color: #ffe28a;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.pilih-level .btn-lihat-skor {
+    background: #fff;
+    border: 3px solid #000;
+    color: #000;
+
+    border-radius: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 40%;
+}
+.pilih-level .btn-lihat-skor:hover {
+    background: #f5f5f5b2;
+    animation: pulse 1s infinite;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.pilih-level .banner {
+    position: relative;
+    display: inline-block;
+    background: #f15a3c;
+    padding: 12px 50px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Teks */
+.pilih-level .banner-title {
+    font-family: "Playpen Sans" !important;
+    font-size: 30px;
+    font-weight: 900;
+    color: #000;
+}
+
+/* Sayap kiri atas */
+.pilih-level .banner::before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 25px;
+    border-top: 25px solid #d94a2c;
+    border-left: 30px solid transparent;
+}
+
+/* Sayap kiri bawah */
+.pilih-level .banner::after {
+    content: "";
+    position: absolute;
+    left: -30px;
+    bottom: -10px;
+    border-bottom: 25px solid #d94a2c;
+    border-left: 30px solid transparent;
+}
+
+/* Sayap kanan atas */
+.pilih-level .banner-title::before {
+    content: "";
+    position: absolute;
+    right: -30px;
+    top: 25px;
+    border-top: 25px solid #d94a2c;
+    border-right: 30px solid transparent;
+}
+
+/* Sayap kanan bawah */
+.pilih-level .banner-title::after {
+    content: "";
+    position: absolute;
+    right: -30px;
+    bottom: -10px;
+    border-bottom: 25px solid #d94a2c;
+    border-right: 30px solid transparent;
+}
+
+/* ========================= */
+/* 📱 Mobile (max 576px) */
+/* ========================= */
+@media (max-width: 576px) {
+    .pilih-level .judul {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .pilih-level .ellipse-content {
+        padding: 20px 10px;
+    }
+
+    .pilih-level .level-card {
+        width: 90%;
+        padding: 8px 15px;
+        border-radius: 25px;
+    }
+
+    .pilih-level .level-label {
+        font-size: 16px;
+        margin-right: 10px;
+    }
+
+    .pilih-level .bulatan {
+        width: 18px;
+        height: 18px;
+        margin: 0 2px;
+    }
+
+    .pilih-level .bulatan.filled i {
+        font-size: 10px;
+    }
+
+    .btn-gotohome {
+        width: 45px;
+        height: 45px;
+        top: 10px;
+        left: 10px;
+    }
+
+    .btn-gotohome i {
+        font-size: 20px;
+    }
+
+    .pilih-level .btn-lihat-skor {
+        width: 80%;
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .pilih-level .modal-image-wrapper {
+        top: -120px;
+        left: 50%;
+    }
+
+    .pilih-level .modal-image {
+        width: 100%;
+    }
+
+    .pilih-level .subjudul {
+        font-size: 20px;
+    }
+
+    .pilih-level .total-skor {
+        font-size: 20px;
+    }
+}
+
+/* ========================= */
+/* 📲 Tablet (max 992px) */
+/* ========================= */
+@media (max-width: 992px) {
+    .pilih-level .judul {
+        font-size: 45px;
+    }
+
+    .pilih-level .ellipse-content {
+        padding: 30px 20px;
+    }
+
+    .pilih-level .level-card {
+        width: 80%;
+    }
+
+    .pilih-level .level-label {
+        font-size: 18px;
+    }
+
+    .pilih-level .bulatan {
+        width: 20px;
+        height: 20px;
+    }
+
+    .pilih-level .modal-image-wrapper {
+        top: -150px;
+        left: 50%;
+    }
+
+    .pilih-level .modal-image {
+        width: 120%;
+    }
+
+    .pilih-level .subjudul {
+        font-size: 24px;
+    }
+
+    .pilih-level .total-skor {
+        font-size: 22px;
+    }
+}

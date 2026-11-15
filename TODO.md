@@ -1,0 +1,1 @@
+-   [x] Edit show.blade.php to remove fixed image dimensions and object-fit: cover, and rounded-circle class to display images precisely like in index.blade.php
